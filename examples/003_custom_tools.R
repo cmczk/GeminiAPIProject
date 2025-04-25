@@ -1,6 +1,8 @@
 library(ellmer)
 
-chat <- chat_gemini()
+chat <- chat_gemini(
+  model = "gemini-2.0-flash"
+)
 
 chat$chat("Какое сейчас время по Минску?")
 

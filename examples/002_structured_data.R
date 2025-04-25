@@ -1,7 +1,10 @@
 library(ellmer)
 
-chat <- chat_gemini()
+chat <- chat_gemini(
+  model = "gemini-2.0-flash"
+)
 
+# структурирование информации о пользователе
 personal_data_str <- type_object(
   age = type_integer("Возраст в годах, целое число"),
   name = type_string("Имя"),
@@ -11,9 +14,10 @@ personal_data_str <- type_object(
 text <- "Привет, меня зовут Евгений, мне 25 лет, с 2024 года я работаю ведущим аналитиком данных в Паритетбанке."
 
 personal_data <- chat$extract_data(text, type = personal_data_str)
+personal_data
+
 
 # классификация настроения комментария
-
 text <- "
 Купленный товар работает отлично, к нему никаких претензий,
 но обслуживание клиентов было ужасным,

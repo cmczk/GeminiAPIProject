@@ -9,7 +9,7 @@ ui <- bslib::page_fluid(
 server <- function(input, output, session) {
   # chat <- ellmer::chat_gemini(system_prompt = "В этом чате ты специалист по языку программирования R.")
   chat <- ellmer::chat_gemini(system_prompt = paste(
-    readLines(here::here("system_prompt.md")), colapse = "\n")
+    readLines(here::here("system_prompts/system_prompt.md")), colapse = "\n")
   )
   
   observeEvent(input$chat_user_input, {
